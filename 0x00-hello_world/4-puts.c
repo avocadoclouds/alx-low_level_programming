@@ -1,12 +1,14 @@
 #include <stdio.h>
 
 /**
- * main - prints phrase
- * Return:0 - always returns to 0 at success 
- */
+* main - print the string in the put function
+*
+* Description: using the main function
+* this program prints "Programming is like building a multilingual puzzle
+* Return: 0
+*/
 int main(void)
 {
-char output[] = "\"Programming is like building a multilingual puzzle";
-puts(output);
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
