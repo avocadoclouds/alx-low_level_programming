@@ -3,10 +3,9 @@
 #include <stdio.h>
 
 /**
-*main - main assigns a anynumber to int
+* main - assigns a any number the program prints postive or  zero or negative
 *
-*the program prints positive, zero or negative
-*Returns: always 0
+* Returns: always 0
 */
 int main(void)
 {
