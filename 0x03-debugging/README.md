@@ -1,1 +1,2 @@
-we will be debugging today
+i'll add a detailed readme
+
