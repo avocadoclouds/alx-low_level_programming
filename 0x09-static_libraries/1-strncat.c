@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "string.h"
-#include "holberton.h"
+#include "main.h"
 /**
 *_strncat - a function that appends a limited portion of src to dest
 *@dest: pointer char void
