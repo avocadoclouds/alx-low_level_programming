@@ -1,24 +1,21 @@
-#include <stdio.h>
 #include "main.h"
-#include "string.h"
 /**
-* _memcpy - Copies the first @n bytes of the memory area
-*          pointed to by @src into the memory area pointed to by @dest.
-* @dest: A pointer to the memory area to be filled.
-* @src: A pointer to the memory area to be copied.
-* @n: The number of bytes to be copied.
-*
-* Return: A pointer to the copied memory area @dest.
+* _memset - check the code for Holberton School students.
+* @s: parameter for the array
+* @b: parameter for the values in the array
+* @n: parameter for the number of times to print the new values
+* Return: Always 0.
 */
-char *_memcpy(char *dest, char *src, unsigned int n)
+
+char *_memset(char *s, char b, unsigned int n)
 {
-  unsigned int i;
-  char *ptr = dest;
+	unsigned int a = 0;
 
-  for (i = 0; i < n; i++)
-    {
-      dest[i] = src[i];
-    }
-  return (ptr);
+	while (a < n)
+	{
+		s[a] = b;
+		a++;
+	}
+
+	return (s);
 }
-

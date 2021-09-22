@@ -1,21 +1,27 @@
-#include <stdio.h>
-#include "string.h"
 #include "main.h"
 /**
-*_strncat - a function that appends a limited portion of src to dest
-*@dest: pointer char void
-*@src: pointer char source
-*@n: reduces the size of dest
-*Return: dest data
-*/
+ * _strncat - concatenates two strings.
+ * @dest: destination.
+ * @src: source.
+ * @n: amount of bytes used from src.
+ * Return: the pointer to dest.
+ */
 char *_strncat(char *dest, char *src, int n)
 {
-  char *ptr = dest + strlen(dest);
+int count = 0, count2 = 0;
 
-  while (*src != '\0' && n--)
-    {
-      *ptr++ = *src++;
-    }
-  *ptr = '\0';
-  return (dest);
+while (*(dest + count) != '\0')
+{
+count++;
+}
+
+while (count2 < n)
+{
+*(dest + count) = *(src + count2);
+if (*(src + count2) == '\0')
+break;
+count++;
+count2++;
+}
+return (dest);
 }
