@@ -1,13 +1,13 @@
 #include <stdlib.h>
 /**
- * string_nconcat - concatenates two strings.
- * @s1: pointer to first string.
- * @s2: pointer to second string from which we'll take first n bytes.
- * @n: n bytes of s2.
- *
- * Return: pointer to newly allocated space in memory.
- * NULL if malloc fails.
- */
+* string_nconcat - concatenates two strings.
+* @s1: pointer to first string.
+* @s2: pointer to second string from which we'll take first n bytes.
+* @n: n bytes of s2.
+*
+* Return: pointer to newly allocated space in memory.
+* NULL if malloc fails.
+*/
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *nstr;
