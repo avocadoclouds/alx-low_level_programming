@@ -1,0 +1,1 @@
+tructure type def
