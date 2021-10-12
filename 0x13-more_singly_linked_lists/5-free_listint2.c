@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "list.h"
 /**
 * free_listint2 - Frees a list of nodes, and sets the head to NULL
 * @head: Pointer to the first element of the list

@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "list.h"
 /**
 * new_node - Creates a new node for list
 * @n: number for new node
