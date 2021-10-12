@@ -1,60 +1,34 @@
-#include "list.h"
+#include "lists.h"
+
 /**
-* new_node - Creates a new node for list
-* @n: number for new node
+* add_nodeint_end - adds a node at the end of a linked list
+* @head: pointer to the first element in the list
+* @n: data to insert in the new element
 *
-* Return: returns the new node or NULL on failure
-*
+* Return: pointer to the new node, or NULL if it fails
 */
-listint_t *new_node(const int n)
-{
-listint_t *new;
-
-new = malloc(sizeof(listint_t));
-if (new == NULL)
-return (NULL);
-new->n = n;
-return (new);
-}
-
-/**
- * last_node - return the address of the last node in a linked list
- * @head: head of linked list
- *
- * Return: returns last node address
- */
-listint_t *last_node(listint_t **head)
-{
-listint_t *last = *head;
-
-while (last->next != NULL)
-last = last->next;
-return (last);
-}
-
-/**
- * add_nodeint_end - adds a new node at the end of a linked list
- * @head: pointer to the head of the linked list
- * @n: number to add to new node
- *
- * Return: returns the address of the new element, or NULL on failure
- */
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-listint_t *new, *last;
+listint_t *new;
+listint_t *temp = *head;
 
-if (head == NULL)
+new = malloc(sizeof(listint_t));
+if (!new)
 return (NULL);
-new = new_node(n);
-if (new == NULL)
-return (NULL);
+
+new->n = n;
 new->next = NULL;
+
 if (*head == NULL)
 {
 *head = new;
-return (*head);
+return (new);
 }
-last = last_node(head);
-last->next = new;
+
+while (temp->next)
+temp = temp->next;
+
+temp->next = new;
+
 return (new);
 }
