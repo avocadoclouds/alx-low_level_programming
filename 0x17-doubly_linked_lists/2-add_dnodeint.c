@@ -7,8 +7,8 @@
  * Return - new inserted node
 */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
-{
+dlistint_t *add_dnodeint(dlistint_t **head, const int n) {
+	
 	dlistint_t *newNode;
 
 	if (head == NULL)
@@ -34,4 +34,6 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	*head = newNode;
 
 	return (newNode);
+
+
 }
