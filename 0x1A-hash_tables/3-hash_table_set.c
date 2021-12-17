@@ -11,69 +11,29 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index;
-	unsigned long int size;
-	hash_node_t *actual_node;
-	hash_node_t *start;
+	unsigned long int idx = 0;
+	hash_node_t *elem = NULL, *new_node = NULL;
 
-	if (ht == NULL)
+	if (ht == NULL || key == NULL || (strcmp(key, "") == 0))
 		return (0);
 
-	size = ht->size;
-	index = key_index((const unsigned char *) key, size);
+	idx = key_index((unsigned char *) key, ht->size);
+	elem = ht->array[idx];
 
-	actual_node = ht->array[index];
-
-	if (actual_node == NULL)
+	if (elem && strcmp(key, elem->key) == 0)
 	{
-		ht->array[index] = assign_values(key, value);
-		if (ht->array[index] == NULL)
-			return (0);
+		free(elem->value);
+		elem->value = strdup(value);
 		return (1);
 	}
 
-	start = actual_node;
-
-	while (actual_node != NULL)
-	{
-		if (strcmp(actual_node->key, key) == 0)
-		{
-			free(actual_node->value);
-			actual_node->value = strdup(value);
-			return (1);
-		}
-		actual_node = actual_node->next;
-	}
-
-	ht->array[index] = assign_values(key, value);
-	if (ht->array[index] == NULL)
-		return (0);
-	(ht->array[index])->next = start;
-
-	return (1);
-}
-
-/**
- * assign_values - creates node
- *
- * @key: Key
- * @value: Value
- *
- * Return: Pointer to the new node or NULL if failure
-*/
-
-hash_node_t *assign_values(const char *key, const char *value)
-{
-	hash_node_t *new_node;
-
 	new_node = malloc(sizeof(hash_node_t));
-
 	if (new_node == NULL)
-		return (NULL);
+		return (0);
 
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
-	new_node->next = NULL;
-
-	return (new_node);
+	new_node->next = ht->array[idx];
+	ht->array[idx] = new_node;
+	return (1);
 }
