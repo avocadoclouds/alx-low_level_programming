@@ -24,10 +24,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	hashTable->size = size;
 	hashTable->array = malloc(sizeof(hash_node_t *) * size);
-	if (hastTable->array == NULL)
+	if (hashTable->array == NULL)
 	{
 		return (NULL);
 	}
 
-	return (hashTable)
+	return (hashTable);
 }
